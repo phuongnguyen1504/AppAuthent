@@ -58,4 +58,21 @@ export const TOP_PLACES = [
       description:
         'Phuket is the largest island in Thailand. It is located in the Andaman Sea in southern Thailand',
     },
+    {
+      id: 8,
+      image: require('../assets/images/0e627c12c05e4dd93ab122d618ea7849.jpeg'),
+      title: 'Bora Bora',
+      location: 'Polynesia',
+      description:
+        'Learn how you can travel Bora Bora on a budget and how overwater bungalows are possible for cheap plus tips on keeping Bora Bora trip costs low.',
+    },
+    {
+      id: 9,
+      image: require('../assets/images/c2dcbb54ca9316831b0f6ed4d4136dda.jpeg'),
+      title: 'Phuket',
+      location: 'Thailand',
+      description:
+        'Phuket is the largest island in Thailand. It is located in the Andaman Sea in southern Thailand',
+    },
+    
   ];

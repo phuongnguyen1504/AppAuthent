@@ -1,15 +1,16 @@
-import { View, Image, StyleSheet, TouchableOpacity, Text } from 'react-native'
+import { View, Image, StyleSheet, TouchableOpacity, Text, FlatList } from 'react-native'
 import React from 'react'
 import { colors, shadow, sizes, spacing } from '../constant/theme';
 import FavoriteButton from './FavoriteButton';
 import { useNavigation } from '@react-navigation/native';
 import {SharedElement} from "react-navigation-shared-element"
+import Places from '../models/place';
 // Divide  width screen to 2 and each card have margin spacing so margin-left/right is spacing.l and margin right/left is divied to 2
 const CARD_WIDTH = sizes.width / 2 - (spacing.l + spacing.l / 2) ;
 const CARD_HEIGHT = 220;
-
-const TripsList = ({list}:{list?:any}) => {
-    const navigation = useNavigation();
+const CARD_WIDTH_SPACING = CARD_WIDTH + spacing.l;
+const TripsList = ({list}:{list:any}) => {
+    const navigation = useNavigation<any>();
     return (
         <View style={styles.container}>
         {list.map((item: any, index: number) => {
@@ -18,14 +19,12 @@ const TripsList = ({list}:{list?:any}) => {
                     style={styles.cardContainer} 
                     key={item.id} 
                     onPress={() => {
-                    navigation.navigate('TripDetails', {trip: item});
+                        navigation.navigate('TripDetails', {trip: item});
                     }}>
                     <View style={[styles.card, shadow.light]}>
-                        <SharedElement id={`trip.${item.id}.image`}>
                             <View style={styles.imageBox}>
                                 <Image style={styles.image} source={item.image}/>
                             </View>
-                        </SharedElement>
                         <View style={styles.footer}>
                             <View style={styles.titleBox}>
                                 <Text style={styles.title}>{item.title}</Text>

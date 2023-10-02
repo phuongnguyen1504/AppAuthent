@@ -7,11 +7,9 @@ import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import TabNavigator from "./TabNavigator";
 import { StatusBar } from "expo-status-bar";
 import TripDetails from "../screens/TripDetails";
-import {createSharedElementStackNavigator} from 'react-navigation-shared-element'
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-// const Stack = createNativeStackNavigator();
-const Stack = createSharedElementStackNavigator();
+const Stack = createNativeStackNavigator();
 
 const MainNavigator = () => {
     const {authState, onLogout} = useAuth();
@@ -27,12 +25,6 @@ const MainNavigator = () => {
                   component={TripDetails} 
                   options={{
                     headerShown: false, 
-                    useNativeDriver: true, 
-                    cardStyleInterpolator: ({current: {progress}}) => ({
-                      cardStyle: {
-                        opacity: progress,
-                      }
-                    })
                   }}
                 />
               </>

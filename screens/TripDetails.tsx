@@ -4,30 +4,30 @@ import { colors, sizes, spacing } from '../constant/theme';
 import Icon from '../components/Icon';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {SharedElement} from "react-navigation-shared-element"
+import { ParamListBase, RouteProp } from '@react-navigation/native';
 
-const TripDetails = ({navigation, route}: {navigation: any, route: any}) => {
+const TripDetails = ({navigation, route}: {navigation: any , route: any}) => {
     const insets = useSafeAreaInsets();
     const {trip} = route.params;
+    // console.log("🚀 ~ file: TripDetails.tsx:12 ~ TripDetails ~ trip:", trip)
     return (
         <View style={styles.container}>
             <View style={[styles.backButton, {marginTop: insets.top}]}>
                 <Icon icon="long-arrow-left" style={styles.backIcon} onPress={()=>navigation.goBack()}/>
             </View>
-            <SharedElement id={`trip.${trip.id}.image`} style={StyleSheet.absoluteFillObject} >
-                <View style={[StyleSheet.absoluteFillObject, styles.imageBox]}>
-                    <Image source={trip.image} style={[StyleSheet.absoluteFillObject, styles.image]}/>
-                </View>
-            </SharedElement>
+            <View style={[StyleSheet.absoluteFillObject, styles.imageBox]}>
+                <Image source={trip.image} style={[StyleSheet.absoluteFillObject, styles.image]}/>
+            </View>
         </View>
     )
 }
 
-TripDetails.sharedElements = (route: { params: { trip: any; }; }) => {
-    const {trip} = route.params;
-    return [{
-        id: `trip.${trip.id}.image`
-    }]
-}
+// TripDetails.sharedElements = (route: { params: { trip: any; }; }) => {
+//     const {trip} = route.params;
+//     return [{
+//         id: `trip.${trip.id}.image`
+//     }]
+// }
 
 const styles = StyleSheet.create({
     container: {

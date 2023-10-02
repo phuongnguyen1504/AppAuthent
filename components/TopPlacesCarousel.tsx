@@ -9,7 +9,7 @@ const CARD_HEIGHT = 200;
 const CARD_WIDTH_SPACING = CARD_WIDTH + spacing.l;
 
 const TopPlacesCarousel = ({list}:{list: any}) => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<any>();
     return (
         <FlatList 
             data={list} 
@@ -30,11 +30,9 @@ const TopPlacesCarousel = ({list}:{list: any}) => {
                     }}>
                         <View style={[styles.card, shadow.dark]}>
                             <FavoriteButton style={styles.favorite}/>
-                            <SharedElement id={`trip.${item.id}.image`} style={StyleSheet.absoluteFillObject} >
                                 <View style={styles.imageBox}>
                                     <Image source={item.image} style={styles.image}/>
                                 </View>
-                            </SharedElement>
                             <View style={styles.titleBox}>
                                 <Text style={styles.title}>{item.title}</Text>
                                 <Text style={styles.location}>{item.location}</Text>
